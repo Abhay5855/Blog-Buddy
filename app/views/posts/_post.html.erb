@@ -10,18 +10,14 @@
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">User:</strong>
-    <%= post.user_id %>
-  </p>
+    <strong class="block font-medium mb-1">Image :</strong>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Allow comments:</strong>
-    <%= post.allow_comments %>
-  </p>
+     <% if post.image.attached?  %>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Show likes count:</strong>
-    <%= post.show_likes_count %>
+     <div><%= image_tag post.image %></div>
+
+     <% end %>
+    
   </p>
 
 </div>
