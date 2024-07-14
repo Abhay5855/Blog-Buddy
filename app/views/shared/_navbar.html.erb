@@ -7,9 +7,11 @@
     <div class="flex items-center justify-betweeen gap-3">
         
         <div>
-          <span class="material-symbols-outlined cursor-pointer">
-edit_square
-</span>
+              <%= link_to new_post_path, class: "" do %>
+            <span class="material-symbols-outlined cursor-pointer">
+              edit_square
+            </span>
+          <% end %>
         </div>
         <div class="flex items-center justify-center rounded-full w-8 h-8 cursor-pointer bg-sky-600 text-center text-white">
           <%= user_initials(current_user.email) %>
