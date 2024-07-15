@@ -30,10 +30,18 @@
     <%= form.label :show_likes_count %>
     <%= form.check_box :show_likes_count, class: "block mt-2 h-5 w-5" %>
   </div>
+  <div class="my-5">
+    <%= form.label :publish %>
+    <%= form.check_box :publish, class: "block mt-2 h-5 w-5" %>
+  </div>
+  <div class="my-5">
+    <%= form.label :draft %>
+    <%= form.check_box :draft, class: "block mt-2 h-5 w-5" %>
+  </div>
 
   <div class="my-5">
     <%= form.label :images%>
-    <%= form.file_field :images, multiple: true%>
+    <%= form.file_field :images%>
   </div>
 
   <div class="inline">
