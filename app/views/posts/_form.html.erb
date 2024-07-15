@@ -40,8 +40,13 @@
   </div>
 
   <div class="my-5">
-    <%= form.label :images%>
-    <%= form.file_field :images%>
+    <%= form.label :image%>
+    <%= form.file_field :image%>
+  </div>
+
+  <div>
+    <%= form.label :content %>
+    <%= form.rich_text_area :content %>
   </div>
 
   <div class="inline">
