@@ -77,3 +77,5 @@ end
 gem "shadcn-ui", "~> 0.0.5"
 
 gem "tailwindcss-rails", "~> 2.6"
+
+gem 'solargraph', group: :development

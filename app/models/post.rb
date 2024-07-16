@@ -5,14 +5,14 @@ class Post < ApplicationRecord
 
   has_rich_text :content
 
-  validates :title,  length: { maximum: 300,
-    too_long: "%{count} characters is the maximum allowed" }, presence: true
+  validates :title,  length: { maximum: 100,
+    too_long: "%{count} characters is the maximum allowed", minimum: 5, too_short: "Title should be %{count} characters at least" }, presence: true
 
   validates :image, presence: true
 
   validates :content, presence: true
 
-  validates  :image_format, presence: true
+  validate  :image_format
   
     private
 

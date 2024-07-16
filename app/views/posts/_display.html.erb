@@ -1,0 +1,60 @@
+<div id="<%= dom_id post %>">
+
+    <% if post.publish %>
+
+        <article class="w-full mt-4 border border-slate-200 dark:border-slate-800/80 rounded-none md:rounded-2xl lg:rounded-2xl pt-4 bg-white dark:bg-slate-950 flex flex-col gap-2 md:gap-3 md:pt-8 lg:p-6 lg:pb-5">
+        <section class="flex flex-col gap-1 sm:gap-4">
+          <div class="flex flex-col gap-5">
+             <section>
+              <div class="flex justify-between">
+                  
+                  <div class="flex items-center gap-2">
+                      
+                        <div class="flex items-center justify-center rounded-full w-8 h-8 cursor-pointer bg-sky-600 text-center text-white">
+          <%= user_initials(current_user.email) %>
+          </div>
+
+                     <div class="flex flex-col">
+                      <div class="font-bold"><%= current_user.username %></div>
+                      <div>Created at <%= time_ago_in_words(post.created_at) %></div>
+                     </div>
+                  </div>
+                  <% if post.publish? %>
+                  <button class="rounded-full">Published</button>
+                  <% end %>
+              </div>
+             </section>
+          </div>
+          <div class="flex w-full justify-between mt-3">
+
+            <section class="flex flex-col">
+                <div class="lg:max-w-72 md:max-w-72 max-w-64">
+                     <h1 class="font-bold lg:text-2xl md:text-2xl text-sm"><%= post.title %></h1>
+                     
+                </div>
+
+                <div class="hidden md:block lg:block max-w-56">
+                  <span class="text-base hidden font-medium hn-break-words cursor-pointer md:line-clamp-2"><%= post.content %></span>
+                </div>
+            
+            </section>
+
+            <div class="border rounded-md object-center object-cover">
+              <%= image_tag(post.image, class: "h-full lg:w-52 md:w-52 w-40")  %>
+            </div>
+           
+          </div>
+            
+        </section>
+     </article>
+      <% else %>
+
+      <button>New</button>
+      
+         <div class="mx-auto">
+
+            <h1 class="text-capitalize">No Blogs Yet!, Start Creating right now</h1>
+         </div>
+    <% end %>
+    
+</div>
