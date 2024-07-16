@@ -2,7 +2,6 @@
   <% if post.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
       <ul>
         <% post.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,41 +9,39 @@
       </ul>
     </div>
   <% end %>
+   
+   <div class="w-full">
 
-  <div class="my-5">
+     <div class="my-5">
     <%= form.label :title %>
-    <%= form.text_field :title, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :title, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full", placeholder: "Enter the title" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :description %>
-    <%= form.text_field :description, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :summary %>
+    <%= form.text_field :description, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full", placeholder: "Short summary of the blog" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :allow_comments %>
-    <%= form.check_box :allow_comments, class: "block mt-2 h-5 w-5" %>
+    <%= form.file_field :image, class: 'filepond' %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :show_likes_count %>
-    <%= form.check_box :show_likes_count, class: "block mt-2 h-5 w-5" %>
+  <div>
+    <%= form.label :content %>
+    <%= form.rich_text_area :content %>
   </div>
-  <div class="my-5">
-    <%= form.label :publish %>
-    <%= form.check_box :publish, class: "block mt-2 h-5 w-5" %>
-  </div>
-  <div class="my-5">
-    <%= form.label :draft %>
-    <%= form.check_box :draft, class: "block mt-2 h-5 w-5" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :images%>
-    <%= form.file_field :images%>
-  </div>
-
-  <div class="inline">
+   
+   <div class="flex items-center justify-center flex-col mt-4">
+      <div class="flex items-center gap-3">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= link_to "Back to posts", '/', class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+
   </div>
+   </div>
+ 
+
+ 
+ 
 <% end %>
+
+  </div>

@@ -9,19 +9,20 @@
     <%= post.description %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">User:</strong>
-    <%= post.user_id %>
+   <p class="my-5">
+    <strong class="block font-medium mb-1">Content:</strong>
+    <%= post.content %>
   </p>
+  
+  <% if post.image.attached? %>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Allow comments:</strong>
-    <%= post.allow_comments %>
-  </p>
+      <div class="my-5">
+      <%= image_tag(post.image, alt: "blog post") %>
+    </div>
+    
+  <% end %>
+  
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Show likes count:</strong>
-    <%= post.show_likes_count %>
-  </p>
+
 
 </div>

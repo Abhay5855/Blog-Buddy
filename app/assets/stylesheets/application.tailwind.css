@@ -2,3 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 @import 'actiontext.css';
+
+@layer base {
+  ul {
+    @apply list-disc list-inside
+  }
+  ol {
+    @apply list-decimal list-inside
+  }
+}
