@@ -11,11 +11,11 @@
                   <div class="flex items-center gap-2">
                       
                         <div class="flex items-center justify-center rounded-full w-8 h-8 cursor-pointer bg-sky-600 text-center text-white">
-          <%= user_initials(current_user.email) %>
+          <%= user_initials(post.user.email) %>
           </div>
 
                      <div class="flex flex-col">
-                      <div class="font-bold"><%= current_user.username %></div>
+                      <div class="font-bold"><%= post.user.username %></div>
                       <div>Created at <%= time_ago_in_words(post.created_at) %></div>
                      </div>
                   </div>
