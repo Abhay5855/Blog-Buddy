@@ -1,6 +1,6 @@
 <div id="<%= dom_id post %>">
 
-    <% if post.publish %>
+       <%= link_to post_path(post) do %>
 
         <article class="w-full mt-4 border border-slate-200 dark:border-slate-800/80 rounded-none md:rounded-2xl lg:rounded-2xl pt-4 bg-white dark:bg-slate-950 flex flex-col gap-2 md:gap-3 md:pt-8 lg:p-6 lg:pb-5">
         <section class="flex flex-col gap-1 sm:gap-4">
@@ -47,14 +47,10 @@
             
         </section>
      </article>
-      <% else %>
 
-      <button>New</button>
-      
-         <div class="mx-auto">
+       <% end %>
+       
 
-            <h1 class="text-capitalize">No Blogs Yet!, Start Creating right now</h1>
-         </div>
-    <% end %>
+   
     
 </div>

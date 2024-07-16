@@ -12,7 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ *= require 'filepond'
  */
+
 
 * {
   margin: 0;
