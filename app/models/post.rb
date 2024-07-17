@@ -5,6 +5,8 @@ class Post < ApplicationRecord
 
   has_rich_text :content
 
+  has_many :comments
+
   validates :title,  length: { maximum: 100,
     too_long: "%{count} characters is the maximum allowed", minimum: 5, too_short: "Title should be %{count} characters at least" }, presence: true
 
