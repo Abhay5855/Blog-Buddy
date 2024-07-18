@@ -1,28 +1,31 @@
 <div id="<%= dom_id post %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= post.title %>
-  </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
-    <%= post.description %>
-  </p>
-
-   <p class="my-5">
-    <strong class="block font-medium mb-1">Content:</strong>
-    <%= post.content %>
-  </p>
-  
-  <% if post.image.attached? %>
-
-      <div class="my-5">
-      <%= image_tag(post.image, alt: "blog post") %>
+  <div class="w-full flex items-center flex-col mt-4  justify-center">
+    <div>
+      <h1 class="text-capitalize text-3xl font-bold">
+        <%= post.title %>
+      </h1>
     </div>
-    
-  <% end %>
+
+    <div class="mt-3">
+      <p class="text-lg font-medium"><%= post.description %></p>
+    </div>
+    <div>
+      <%= image_tag(post.image, class: "h-auto  max-w-full")  %>
+    </div>
+
+    <div class="mt-5">
+        <p><%= post.content %></p>
+    </div>
   
 
-
-
+  <div class="flex items-center mt-4 gap-1">
+  <span>View all comments</span>
+  <span type="button"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="material-symbols-outlined">
+chat_bubble
+</span>
+  </div>
+      <%= render 'posts/post_comments', post: post  %>
+     </div>
+  </div>
 </div>

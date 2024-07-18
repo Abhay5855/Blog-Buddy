@@ -21,8 +21,11 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
+  
     @post = current_user.posts.new(post_params)
 
+    puts "AB: created post: #{@post.status}!!"
+   
     respond_to do |format|
       if @post.save
         format.html { redirect_to '/', notice: "Post was successfully created." }
@@ -65,6 +68,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :description, :user_id, :allow_comments, :show_likes_count, :publish, :draft, :image, :content)
+      params.require(:post).permit(:title, :description, :user_id, :image, :content, :status)
     end
 end

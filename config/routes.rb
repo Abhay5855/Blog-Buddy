@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :posts
+
+  resources :comments, only: [:create, :destroy]
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -7,9 +9,7 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-   mount Filepond::Rails::Engine, at: '/filepond'
-
-  # Defines the root path route ("/")
+  # Defines the root path route ("/")s
   # root "posts#index"
   root to:"main#index"
 end

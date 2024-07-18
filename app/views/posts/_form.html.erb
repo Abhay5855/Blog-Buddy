@@ -30,7 +30,10 @@
     <%= form.label :content %>
     <%= form.rich_text_area :content %>
   </div>
-   
+     <div class="dropdown mt-3">
+       <%= form.select :status,  Post.statuses.keys.map { |w| [w.humanize, w] },{},  class: "dropdown-menu" %>
+     </div>
+  
    <div class="flex items-center justify-center flex-col mt-4">
       <div class="flex items-center gap-3">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
