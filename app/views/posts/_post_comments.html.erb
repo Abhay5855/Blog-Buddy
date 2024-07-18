@@ -1,0 +1,51 @@
+<%= turbo_frame_tag "post#{post.id}comments" do %>
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <% if post.comments.count > 0 %>
+        <div class="flex items-center gap-1">
+          <h1 class="font-bold text-2xl">Responses (<%= post.comments.count %>)</h1>
+        </div>
+      <% else %>
+        <h1 class="font-bold text-2xl">Responses (0)</h1>
+      <% end %>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="flex items-center justify-center rounded-full w-8 h-8 cursor-pointer bg-sky-600 text-center text-white">
+          <%= user_initials(current_user.email) %>
+        </div>
+        <div>
+          <p class="font-bold text-medium"><%= current_user.username %></p>
+        </div>
+      </div>
+      <%= form_with url: comments_path, method: :post, local: false, remote: true do |f| %>
+        <%= f.hidden_field  :post_id, value: post.id  %>
+        <%= f.text_area :comment_body, class: "form-control", id: "floatingTextarea2", placeholder: "Leave a comment" %>
+        <div class="form-floating mb-3">
+          <%= f.submit "Add Comment", class: "btn btn-primary mt-2" %>
+        </div>
+      <% end %>
+      <div class="flex flex-col gap-3 mt-3  p-2 border-b-4 border-indigo-500">
+        <% post.comments.each do |comment| %>
+          <section class="flex items-center gap-2">
+            <div class="flex items-center justify-center rounded-full w-8 h-8 cursor-pointer bg-sky-600 text-center text-white">
+              <%= user_initials(comment.user.email) %>
+            </div>
+            <div class="flex flex-col gap-1">
+              <% if comment.user.username %>
+                <span class="font-bold"><%= comment.user.username %></span>
+              <% else %>
+                <span class="font-bold"><%= comment.user.email %></span>
+              <% end %>
+              <div>
+                <small class="text-capitalize text-sm font-medium text-zinc-400" ><%= time_ago_in_words(comment.created_at) %></small>
+              </div>
+            </div>
+          </section>
+          <p><span><%= comment.body %></span></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

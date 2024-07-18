@@ -2,30 +2,23 @@
 
 
 <% if user_signed_in? %>
-
  <div class="container mt-4">
     <div class="row">
         <div class="col-sm-7">
          <% @posts.each do |p|  %>
-
 <%= render 'posts/display', post: p  %>
-
 <% end %>
         </div>
         <div class="col-sm-5">
-            <div></div>
+            <%= render 'posts/profile' %>
         </div>
     </div>
 </div>
-
-    
     <% else %>
-
     <div class="mx-auto  text-center">
         <h1 class="text-capitalize font-bold text-2xl">Welcome to Blogbuddy, Signup to see more awesome blogs and posts.</h1>
       <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary mt-2" %>
     </div>
-    
 <% end %>
 
 

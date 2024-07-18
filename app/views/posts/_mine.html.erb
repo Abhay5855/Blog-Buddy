@@ -1,7 +1,11 @@
-<div id="<%= dom_id(post) %>">
-  <% if post.status == "published" %>
-    <%= link_to post_path(post) do %>
-      <article class="w-full mt-4 border border-slate-200 dark:border-slate-800/80 rounded-none md:rounded-2xl lg:rounded-2xl pt-4 bg-white dark:bg-slate-950 flex flex-col gap-2 md:gap-3 md:pt-8 lg:p-6 lg:pb-5">
+
+
+
+
+<% current_user.posts.each do |post| %>
+
+  <%= link_to post_path(post) do %>
+      <article class=" m-11 border border-slate-200 dark:border-slate-800/80 rounded-none md:rounded-2xl lg:rounded-2xl pt-4 bg-white dark:bg-slate-950 flex flex-col gap-2 md:gap-3 md:pt-8 lg:p-6 lg:pb-5">
         <section class="flex flex-col gap-1 sm:gap-4">
           <div class="flex flex-col gap-5">
             <section>
@@ -16,7 +20,19 @@
                   </div>
                 </div>
                 <% if post.status == "published" %>
-                  <button class="rounded-full bg-sky-500 p-2 text-white text-sm">Published</button>
+                  <button class="rounded-full bg-sky-500 p-2 text-white text-sm w-24">Published</button>
+                   
+                <% else %>
+                <div class="flex items-center gap-2">
+                 <button class="rounded-full p-2 text-white text-sm w-24 bg-gray-400">Draft</button>
+                     <%= link_to edit_post_path(post) do %>
+                     <span class="material-symbols-outlined">
+                          edit
+                    </span>
+                  <% end %>
+            <%= button_to "Delete", post, method: :delete, class: " rounded-lg btn btn-danger" %>
+                </div>
+                
                 <% end %>
               </div>
             </section>
@@ -37,7 +53,5 @@
         </section>
       </article>
     <% end %>
-  <% else %>
-    
-  <% end %>
-</div>
+<% end %>
+

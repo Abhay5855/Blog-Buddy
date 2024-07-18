@@ -17,14 +17,15 @@
     <div class="mt-5">
         <p><%= post.content %></p>
     </div>
-     
+  
 
-     <div class="flex items-center gap-3">
-
-       <div>
-      <%= render 'comments', post: post  %>
-    </div>
+  <div class="flex items-center mt-4 gap-1">
+  <span>View all comments</span>
+  <span type="button"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="material-symbols-outlined">
+chat_bubble
+</span>
+  </div>
+      <%= render 'posts/post_comments', post: post  %>
      </div>
-    
   </div>
 </div>

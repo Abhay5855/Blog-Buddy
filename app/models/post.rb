@@ -7,6 +7,11 @@ class Post < ApplicationRecord
 
   has_many :comments
 
+  enum status: { draft: 0, published: 1 }
+
+  validates :status, presence: true
+
+
   validates :title,  length: { maximum: 100,
     too_long: "%{count} characters is the maximum allowed", minimum: 5, too_short: "Title should be %{count} characters at least" }, presence: true
 
@@ -15,7 +20,7 @@ class Post < ApplicationRecord
   validates :content, presence: true
 
   validate  :image_format
-  
+
     private
 
   def image_format
