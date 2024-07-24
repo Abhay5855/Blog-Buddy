@@ -22,4 +22,6 @@ A Blog application to post, edit, create and keep track of the Docs.
 9. Sqlite Database.
 10. FilePond for cool image uploading.
 
-## Demo 
+## Database Design 
+https://dbdiagram.io/d/BlogBuddy-66a0f69a8b4bb5230e3a21a4
+
