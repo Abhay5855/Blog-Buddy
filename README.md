@@ -25,3 +25,4 @@ A Blog application to post, edit, create and keep track of the Docs.
 ## Database Design 
 https://dbdiagram.io/d/BlogBuddy-66a0f69a8b4bb5230e3a21a4
 
+![BlogBuddy ](https://github.com/user-attachments/assets/4ed1ddd4-050c-4d3f-aa3a-b6091f3f27b3)
